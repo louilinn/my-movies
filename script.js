@@ -33,12 +33,15 @@ function addMovies(data) {
 
 function showMovieDetails(entry) {
     movieDetails.innerHTML = '';
-    
+
     const title = document.createElement('h2');
     title.innerText = entry.title;
 
     const desc = document.createElement('p');
     desc.innerText = entry.overview;
 
-    movieDetails.append(title, desc);
+    const img = document.createElement('img');
+    img.src = `https://image.tmdb.org/t/p/w500${entry.poster_path}`;
+
+    movieDetails.append(title, desc, img);
 }
