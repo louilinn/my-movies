@@ -18,17 +18,18 @@ fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_v
 function addMovies(data) {
     console.log(data.results);
 
-    data.results.forEach((entry) => {
-            const movieEl = document.createElement('li');
-            movieEl.innerText = entry.title;
+    data.results.forEach((entry) => addSingleMovie(entry))
+}
 
-            movieEl.addEventListener('click', () => {
-                showMovieDetails(entry)
-            })
+function addSingleMovie(entry) {
+    const movieEl = document.createElement('li');
+    movieEl.innerText = entry.title;
 
-            movieList.appendChild(movieEl);
-        }
-    )
+    movieEl.addEventListener('click', () => {
+        showMovieDetails(entry);
+    });
+
+    movieList.appendChild(movieEl);
 }
 
 function showMovieDetails(entry) {
